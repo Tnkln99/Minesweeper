@@ -1,11 +1,12 @@
 #include <iostream>
-#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics.hpp>
 
 #ifndef MINESWEEPER_BUTTON_H
 #define MINESWEEPER_BUTTON_H
 
 class Button : public sf::RectangleShape {
 private:
+    sf::Text Text;
 public:
     Button(float,float,float,float);
 

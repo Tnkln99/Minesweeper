@@ -7,19 +7,24 @@
 #define MINESWEEPER_MENUWINDOW_H
 
 enum Difficulty{
-    EASY, NORMAL, HARD
+    NOTCHOSEN , EASY, NORMAL, HARD
 };
 
 class MenuWindow : public sf::RenderWindow{
 private:
-    Difficulty difficulty;
-    std::vector<Button> Buttons;
-
-
+    Difficulty difficulty = Difficulty::NOTCHOSEN;
+    std::vector<Button> DifficultyButtons;
+    Button PlayButton = Button(100,50,206,400);
 public:
     explicit MenuWindow();
 
-    bool PlayButClick() const;
+    const Difficulty getDifficulty() ;
+
+    void setDifficulty(Difficulty dif);
+
+    bool PlayButClick(const Window& relativeTo) const;
+
+    void DifficultySelect(const Window& relativeTo);
 
     void DrawMenu();
 };
