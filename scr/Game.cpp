@@ -2,46 +2,6 @@
 
 Game::Game() = default;
 
-void Game::Run() //main function
-{
-
-    while (menu.isOpen())
-    {
-        sf::Event event{};
-        while (menu.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed){
-                menu.close();
-                game.close();
-            }
-        }
-
-        if(menu.PlayButClick(menu))
-        {
-            menu.close();
-            std::pair<int,int> difficultySetting = DifficultyToSize(menu.getDifficulty());
-            game.create(sf::VideoMode(difficultySetting.first, difficultySetting.second, 32), "MinesSweeper");
-        }
-        menu.DifficultySelect(menu);
-
-        menu.clear();
-        menu.DrawMenu();
-        menu.display();
-    }
-
-    while(game.isOpen()){
-        sf::Event event{};
-        while (game.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                game.close();
-        }
-
-        game.clear();
-        game.display();
-    }
-}
-
 std::pair<int, int> Game::DifficultyToSize(Difficulty dif) {
     std::pair<int,int> res;
     switch (dif) {
@@ -63,4 +23,43 @@ std::pair<int, int> Game::DifficultyToSize(Difficulty dif) {
     return res;
 }
 
+void Game::Run() //main function
+{
+    while (menu.isOpen())
+    {
+        sf::Event event{};
+        while (menu.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed){
+                menu.close();
+                game.close();
+            }
+        }
 
+        if(menu.PlayButClick(menu))
+        {
+            menu.close();
+            std::pair<int,int> difficultySetting = DifficultyToSize(menu.getDifficulty());
+            game.create(sf::VideoMode(difficultySetting.first, difficultySetting.second, 32), "MinesSweeper", sf::Style::Titlebar | sf::Style::Close);
+        }
+        menu.DifficultySelect(menu);
+
+        menu.clear();
+        menu.DrawMenu();
+        menu.display();
+    }
+
+    /*----------------------------------------------------------------------------------------------------------*/
+
+    while(game.isOpen()){
+        sf::Event event{};
+        while (game.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                game.close();
+        }
+
+        game.clear();
+        game.display();
+    }
+}

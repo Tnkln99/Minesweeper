@@ -1,7 +1,8 @@
 #include "Button.h"
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 #ifndef MINESWEEPER_MENUWINDOW_H
 #define MINESWEEPER_MENUWINDOW_H
@@ -13,12 +14,12 @@ enum Difficulty{
 class MenuWindow : public sf::RenderWindow{
 private:
     Difficulty difficulty = Difficulty::NOTCHOSEN;
-    std::vector<Button> DifficultyButtons;
-    Button PlayButton = Button(100,50,206,400);
+    std::vector<std::unique_ptr<Button>> DifficultyButtons;
+    Button PlayButton = Button(100,50,206,400,sf::Color::Magenta,"PLAY");;
 public:
     explicit MenuWindow();
 
-    const Difficulty getDifficulty() ;
+    Difficulty getDifficulty() ;
 
     void setDifficulty(Difficulty dif);
 

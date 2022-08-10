@@ -15,7 +15,7 @@ private:
 public:
     explicit Game();
 
-    std::pair<int, int> DifficultyToSize(Difficulty dif);
+    static std::pair<int, int> DifficultyToSize(Difficulty dif);
 
     void Run();
 };
