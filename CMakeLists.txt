@@ -4,10 +4,8 @@ project(Minesweeper)
 find_package(SFML 2.5 COMPONENTS network graphics audio REQUIRED)
 
 add_library(scrLib
-        scr/Board.cpp
-        scr/Game.cpp
-        scr/Button.cpp
-        scr/MenuWindow.cpp scr/GameWindow.cpp)
+        scr/Board.cpp scr/Game.cpp scr/Button.cpp
+        scr/MenuWindow.cpp scr/GameWindow.cpp scr/FieldButton.cpp)
 
 target_link_libraries(scrLib PRIVATE sfml-network sfml-graphics sfml-audio)
 

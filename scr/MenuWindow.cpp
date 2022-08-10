@@ -22,10 +22,10 @@ void MenuWindow::setDifficulty(Difficulty dif) {
 }
 
 
-void MenuWindow::DifficultySelect(const Window& relativeTo) { 
+void MenuWindow::DifficultySelect(const Window& relativeTo) {
     for(int i = 0; i < DifficultyButtons.size(); i ++ ){
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && DifficultyButtons[i]->click(sf::Mouse::getPosition(relativeTo))){
-            DifficultyButtons[i]->setFillColor(sf::Color::Green);
+            DifficultyButtons[i]->setFillColor(sf::Color(0,51,51));
             int savedIndex = i;
             for(int j = 0; j < 3; j++){
                 if (j != savedIndex)

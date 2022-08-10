@@ -25,41 +25,51 @@ std::pair<int, int> Game::DifficultyToSize(Difficulty dif) {
 
 void Game::Run() //main function
 {
-    while (menu.isOpen())
-    {
-        sf::Event event{};
-        while (menu.pollEvent(event))
+    while(gameRunning){
+        while (menu.isOpen())
         {
-            if (event.type == sf::Event::Closed){
-                menu.close();
-                game.close();
+            sf::Event event{};
+            while (menu.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed){
+                    menu.close();
+                    game.close();
+                    gameRunning = false;
+                }
             }
+
+            if(menu.PlayButClick(menu))
+            {
+                menu.close();
+                std::pair<int,int> difficultySetting = DifficultyToSize(menu.getDifficulty());
+                game.create(sf::VideoMode(difficultySetting.first, difficultySetting.second, 32), "MinesSweeper", sf::Style::Titlebar | sf::Style::Close);
+            }
+            menu.DifficultySelect(menu);
+
+            menu.clear();
+            menu.DrawMenu();
+            menu.display();
         }
 
-        if(menu.PlayButClick(menu))
-        {
-            menu.close();
-            std::pair<int,int> difficultySetting = DifficultyToSize(menu.getDifficulty());
-            game.create(sf::VideoMode(difficultySetting.first, difficultySetting.second, 32), "MinesSweeper", sf::Style::Titlebar | sf::Style::Close);
-        }
-        menu.DifficultySelect(menu);
+        /*----------------------------------------------------------------------------------------------------------*/
 
-        menu.clear();
-        menu.DrawMenu();
-        menu.display();
-    }
-
-    /*----------------------------------------------------------------------------------------------------------*/
-
-    while(game.isOpen()){
-        sf::Event event{};
-        while (game.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
+        while(game.isOpen()){
+            sf::Event event{};
+            while (game.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed){
+                    game.close();
+                    gameRunning = false;
+                }
+            }
+            if(game.BackButtonControl(game)){
                 game.close();
+                menu.create(sf::VideoMode(500, 500, 32), "Menu", sf::Style::Titlebar | sf::Style::Close);
+            }
+            game.clear();
+            game.DrawGame();
+            game.display();
         }
-
-        game.clear();
-        game.display();
     }
+
 }

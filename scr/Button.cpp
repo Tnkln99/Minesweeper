@@ -4,7 +4,7 @@ Button::Button(float sizeX, float sizeY, float positionX, float positionY,sf::Co
 {
     setFillColor(color);
     loadText(text);
-    Text.setPosition(positionX + 5,positionY + 5);
+    Text.setPosition(positionX + 10,positionY + 10);
     setPosition(positionX,positionY);
 }
 

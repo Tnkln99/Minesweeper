@@ -10,6 +10,7 @@
 
 class Game {
 private:
+    bool gameRunning = true;
     MenuWindow menu;
     GameWindow game;
 public:

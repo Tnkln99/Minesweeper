@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Minesweeper::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Minesweeper-Debug-8fa96f52de54aca61a83.json",
+					"jsonFile" : "target-Minesweeper-Debug-d5c0228e41a7ca18402b.json",
 					"name" : "Minesweeper",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "scrLib::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-scrLib-Debug-f6ab60789f9673b632da.json",
+					"jsonFile" : "target-scrLib-Debug-17fea9a788bf1cdbfa79.json",
 					"name" : "scrLib",
 					"projectIndex" : 0
 				}

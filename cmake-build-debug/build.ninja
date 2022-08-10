@@ -79,6 +79,12 @@ build CMakeFiles/scrLib.dir/scr/GameWindow.cpp.obj: CXX_COMPILER__scrLib_Debug C
   OBJECT_DIR = CMakeFiles\scrLib.dir
   OBJECT_FILE_DIR = CMakeFiles\scrLib.dir\scr
 
+build CMakeFiles/scrLib.dir/scr/FieldButton.cpp.obj: CXX_COMPILER__scrLib_Debug C$:/Users/tanku/Documents/Projects/Minesweeper/scr/FieldButton.cpp || cmake_object_order_depends_target_scrLib
+  DEP_FILE = CMakeFiles\scrLib.dir\scr\FieldButton.cpp.obj.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles\scrLib.dir
+  OBJECT_FILE_DIR = CMakeFiles\scrLib.dir\scr
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target scrLib
@@ -87,7 +93,7 @@ build CMakeFiles/scrLib.dir/scr/GameWindow.cpp.obj: CXX_COMPILER__scrLib_Debug C
 #############################################
 # Link the static library libscrLib.a
 
-build libscrLib.a: CXX_STATIC_LIBRARY_LINKER__scrLib_Debug CMakeFiles/scrLib.dir/scr/Board.cpp.obj CMakeFiles/scrLib.dir/scr/Game.cpp.obj CMakeFiles/scrLib.dir/scr/Button.cpp.obj CMakeFiles/scrLib.dir/scr/MenuWindow.cpp.obj CMakeFiles/scrLib.dir/scr/GameWindow.cpp.obj
+build libscrLib.a: CXX_STATIC_LIBRARY_LINKER__scrLib_Debug CMakeFiles/scrLib.dir/scr/Board.cpp.obj CMakeFiles/scrLib.dir/scr/Game.cpp.obj CMakeFiles/scrLib.dir/scr/Button.cpp.obj CMakeFiles/scrLib.dir/scr/MenuWindow.cpp.obj CMakeFiles/scrLib.dir/scr/GameWindow.cpp.obj CMakeFiles/scrLib.dir/scr/FieldButton.cpp.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles\scrLib.dir
   POST_BUILD = cd .

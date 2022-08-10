@@ -1,5 +1,6 @@
 #include "Button.h"
 #include <iostream>
+#include <utility>
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -15,7 +16,7 @@ class MenuWindow : public sf::RenderWindow{
 private:
     Difficulty difficulty = Difficulty::NOTCHOSEN;
     std::vector<std::unique_ptr<Button>> DifficultyButtons;
-    Button PlayButton = Button(100,50,206,400,sf::Color::Magenta,"PLAY");;
+    Button PlayButton = Button(100,50,206,400,sf::Color(51,0,102),"PLAY");
 public:
     explicit MenuWindow();
 
