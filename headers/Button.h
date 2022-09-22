@@ -14,9 +14,9 @@ public:
 
     void setText(const std::string&);
 
-    const sf::Text & getText();
+    sf::Text & getText();
 
-    void loadText(std::string text);
+    void loadText(const std::string& text);
     bool click(const sf::Vector2i& mouse_pos) const;
 };
 #endif //MINESWEEPER_BUTTON_H

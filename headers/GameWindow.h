@@ -1,4 +1,4 @@
-#include "Button.h"
+#include "FieldButton.h"
 #include "Board.h"
 #include <vector>
 #include <iostream>
@@ -10,12 +10,14 @@
 class GameWindow : public sf::RenderWindow{
 private:
     Button ExitButton = Button(100, 50, 50, 50, sf::Color(51, 0, 102), "EXIT");
-    std::vector<Button> Buttons;
+    Board Board;
 public:
     explicit GameWindow();
 
-    bool BackButtonControl(const Window& relativeTo) const;
+    bool BackButtonControl(const Window& relativeTo);
+    class Board & getBoard();
 
+    void nextTurn(const Window& relativeTo);
     void DrawGame();
 };
 

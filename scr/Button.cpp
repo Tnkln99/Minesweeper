@@ -12,15 +12,24 @@ bool Button::click(const sf::Vector2i& mouse_pos) const {
     return getGlobalBounds().contains(mouse_pos.x, mouse_pos.y);
 }
 
-void Button::setText(const std::string & text) {
+void Button::setText(const std::string& text) {
+    std::string fontFile = "../resources/Vanosky.otf";
+    if (!Font.loadFromFile(fontFile))
+    {
+        std:: cout << "cant load the font" << std::endl;
+        exit(1);
+    }
+    Text.setFont(Font);
     Text.setString(text);
+    Text.setFillColor(sf::Color::Blue);
+    Text.setCharacterSize(10);
 }
 
-const sf::Text &Button::getText() {
+sf::Text &Button::getText() {
     return Text;
 }
 
-void Button::loadText(std::string text) {
+void Button::loadText(const std::string& text) {
     std::string fontFile = "../resources/Vanosky.otf";
     if (!Font.loadFromFile(fontFile))
     {

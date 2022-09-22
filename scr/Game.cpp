@@ -14,8 +14,8 @@ std::pair<int, int> Game::DifficultyToSize(Difficulty dif) {
             res.second = 750;
             break;
         case Difficulty::HARD:
-            res.first = 1000;
-            res.second = 1000;
+            res.first = 900;
+            res.second = 900;
             break;
         default:
             break;
@@ -43,6 +43,7 @@ void Game::Run() //main function
                 menu.close();
                 std::pair<int,int> difficultySetting = DifficultyToSize(menu.getDifficulty());
                 game.create(sf::VideoMode(difficultySetting.first, difficultySetting.second, 32), "MinesSweeper", sf::Style::Titlebar | sf::Style::Close);
+                game.getBoard().loadBoard(difficultySetting.first/50);
             }
             menu.DifficultySelect(menu);
 
@@ -66,6 +67,10 @@ void Game::Run() //main function
                 game.close();
                 menu.create(sf::VideoMode(500, 500, 32), "Menu", sf::Style::Titlebar | sf::Style::Close);
             }
+
+            game.nextTurn(game);
+
+
             game.clear();
             game.DrawGame();
             game.display();
