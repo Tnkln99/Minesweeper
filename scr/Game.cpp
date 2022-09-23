@@ -2,7 +2,8 @@
 
 Game::Game() = default;
 
-std::pair<int, int> Game::DifficultyToSize(Difficulty dif) {
+std::pair<int, int> Game::DifficultyToSize(Difficulty dif)
+{
     std::pair<int,int> res;
     switch (dif) {
         case Difficulty::EASY:
@@ -58,7 +59,8 @@ void Game::Run() //main function
             sf::Event event{};
             while (game.pollEvent(event))
             {
-                if (event.type == sf::Event::Closed){
+                if (event.type == sf::Event::Closed)
+                {
                     game.close();
                     gameRunning = false;
                 }
@@ -68,7 +70,11 @@ void Game::Run() //main function
                 menu.create(sf::VideoMode(500, 500, 32), "Menu", sf::Style::Titlebar | sf::Style::Close);
             }
 
-            game.nextTurn(game);
+            if(!game.nextTurn(game))
+            {
+                game.close();
+                menu.create(sf::VideoMode(500, 500, 32), "Menu", sf::Style::Titlebar | sf::Style::Close);
+            }
 
 
             game.clear();

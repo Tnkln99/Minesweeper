@@ -37,7 +37,7 @@ void Board::loadBoard(int sizeOfBoard) {
         Field[r].setHaveMine(true);
     }
 
-    debugger();
+    //debugger();
 
     for (int i = 0; i < Field.size(); i++){
         Field[i].setNeighborCount(findNeighbourMineCount(i));
@@ -92,11 +92,11 @@ const int Board::findNeighbourMineCount(int index) {
     int Vkinit, Vkfin, Vpinit,Vpfin;
 
     if (i == 0) {Vkinit = i; Vkfin = i + 1;}
-    else if (i == SizeOfBoard) { Vkfin = i; Vkinit = i - 1; }
+    else if (i == SizeOfBoard - 1) { Vkfin = i; Vkinit = i - 1; }
     else { Vkinit = i - 1; Vkfin = i + 1; }
 
     if (j == 0) { Vpinit = j; Vpfin = j + 1; }
-    else if (j == SizeOfBoard) { Vpfin = j; Vpinit = j - 1; }
+    else if (j == SizeOfBoard - 1) { Vpfin = j; Vpinit = j - 1; }
     else { Vpinit = j - 1; Vpfin = j + 1; }
 
     int res = 0;

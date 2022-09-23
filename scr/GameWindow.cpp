@@ -12,25 +12,35 @@ bool GameWindow::BackButtonControl(const Window& relativeTo){
     return false;
 }
 
-class Board &GameWindow::getBoard() {
+class Board &GameWindow::getBoard(){
     return Board;
 }
 
-void GameWindow::nextTurn(const Window& relativeTo) {
+bool GameWindow::nextTurn(const Window& relativeTo) { // if there is a next turn it will return true else false it will do all the modifications necessary in the process
     for(int i = 0 ; i < Board.getField().size(); i ++){
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && Board.getField()[i].click(sf::Mouse::getPosition(relativeTo)))
         {
-            if(Board.getField()[i].doesHaveMine()){
+            if(Board.getField()[i].doesHaveMine())
+            {
                 Board.getField().clear();
+                return false;
             }
-            else{
+            else
+            {
                 Board.openSpace(i);
                 for (auto & button : Board.getField()){
                     button.setMarked(false);
                 }
+                return true;
             }
         }
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Right) && Board.getField()[i].click(sf::Mouse::getPosition(relativeTo)) && Board.getField()[i].doesHaveMine())
+        {
+            Board.getField()[i].setFillColor(sf::Color::Yellow);
+            return true;
+        }
     }
+    return true;
 }
 
 void GameWindow::DrawGame() {

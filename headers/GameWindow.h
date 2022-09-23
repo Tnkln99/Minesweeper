@@ -17,7 +17,7 @@ public:
     bool BackButtonControl(const Window& relativeTo);
     class Board & getBoard();
 
-    void nextTurn(const Window& relativeTo);
+    bool nextTurn(const Window& relativeTo);
     void DrawGame();
 };
 

@@ -14,17 +14,15 @@ MenuWindow::MenuWindow() : sf::RenderWindow(sf::VideoMode(500, 500, 32), "Menu",
     titleText.setPosition(150,25);
     titleText.setFillColor(sf::Color::Red);
 
-    highScoreText.setFont(MenuFont);
-    highScoreText.setString("HIGHEST SCORE :");
-    highScoreText.setCharacterSize(25);
-    //highScoreText.setStyle(sf::Text::Bold);
-    highScoreText.setPosition(150,225);
-    highScoreText.setFillColor(sf::Color::Red);
+    highScoreTitleText.setFont(MenuFont);
+    highScoreTitleText.setString("HIGHEST SCORE :");
+    highScoreTitleText.setCharacterSize(25);
+    highScoreTitleText.setPosition(150, 225);
+    highScoreTitleText.setFillColor(sf::Color::Red);
 
     highestScore.setFont(MenuFont);
     highestScore.setString("0");
     highestScore.setCharacterSize(25);
-    //highestScore.setStyle(sf::Text::Bold);
     highestScore.setPosition(250,275);
     highestScore.setFillColor(sf::Color::Red);
 
@@ -82,7 +80,7 @@ void MenuWindow::DrawMenu() {
     }
 
     draw(titleText);
-    draw(highScoreText);
+    draw(highScoreTitleText);
     draw(highestScore);
 
     draw(PlayButton);
